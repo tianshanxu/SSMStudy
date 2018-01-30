@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.lixiang</groupId>
+    <artifactId>StudySSM</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>ssm</module>
+    </modules>
+    <name>practice</name>
+    <url>http://maven.apache.org</url>
+    <!--一些通用属性-->
+    <properties>
+        <!--spring版本号-->
+        <spring.version>5.0.2.RELEASE</spring.version>
+        <!--mybatis版本号-->
+        <mybatis.version>3.2.6</mybatis.version>
+        <!--log4j日志文件管理包版本-->
+        <slf4j.version>1.7.7</slf4j.version>
+        <log4j.version>1.2.17</log4j.version>
+
+        <JAVA_PATH>${env.JAVA_HOME}/bin/javac</JAVA_PATH>
+        <JAVA_VERSION>1.8</JAVA_VERSION>
+        <ENCODING>UTF-8</ENCODING>
+        <COMPILE_PLUGIN_VERSION>3.1</COMPILE_PLUGIN_VERSION>
+    </properties>
+    <!--在这里面写是不会引入jar包，只是声明要引入哪些包-->
+    <dependencyManagement>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+    </dependencies>
+    </dependencyManagement>
+    <build>
+        <plugins>
+            <!--插件，规定编译和运行的版本-->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${COMPILE_PLUGIN_VERSION}</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
